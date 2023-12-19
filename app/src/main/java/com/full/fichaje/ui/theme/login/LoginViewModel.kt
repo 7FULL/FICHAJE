@@ -70,7 +70,7 @@ class LoginViewModel: ViewModel() {
 
     fun onLoginChanged(username: String, password: String) {
         _username.value = username
-        if (password.length < 11) {
+        if (password.length < 15) {
             _password.value = password
         }
 

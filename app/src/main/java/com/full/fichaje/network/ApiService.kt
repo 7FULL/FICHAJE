@@ -1,6 +1,7 @@
 package com.full.crm.network
 
 
+import com.full.fichaje.models.Fichaje
 import com.full.fichaje.models.User
 import retrofit2.Response
 import retrofit2.http.Body
@@ -30,6 +31,10 @@ interface ApiService {
 
     @POST("api/user/getUser")
     suspend fun getEmployee(@Body loginRequest: LoginRequest): Response<DataResponse<User>>
+
+    @POST("api/user/fichar")
+    suspend fun fichar(@Body fichajeRequest: FichajeRequest): Response<DataResponse<Boolean>>
 }
 
 data class LoginRequest(val username: String, val password: String)
+data class FichajeRequest(val username: String, val fichaje: Fichaje)

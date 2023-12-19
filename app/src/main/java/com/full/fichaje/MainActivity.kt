@@ -72,7 +72,7 @@ fun OptionsBar(modifier: Modifier = Modifier, selectedIcon: Int) {
             modifier = Modifier
                 .fillMaxWidth()
                 .requiredHeight(height = 75.dp)
-                .background(color = Color(0xFF1976D2))
+                .background(color = Color(0xFF6F19D2))
                 .border(border = BorderStroke(1.dp, Color.Black.copy(alpha = 0.51f))))
         Row(modifier.fillMaxWidth()){
 
@@ -83,7 +83,7 @@ fun OptionsBar(modifier: Modifier = Modifier, selectedIcon: Int) {
                         .fillMaxWidth()
                 ){
                     Icon(
-                        tint = if (selectedIcon == 0) Color(R.color.primaryDescendant) else Color.White,
+                        tint = if (selectedIcon == 0) Color(0xFFAE71F5) else Color.White,
                         imageVector = Icons.Rounded.AssuredWorkload,
                         contentDescription = "Vector",
                         modifier = Modifier
@@ -104,7 +104,7 @@ fun OptionsBar(modifier: Modifier = Modifier, selectedIcon: Int) {
                     .fillMaxWidth()
             ){
                 Icon(
-                    tint = if (selectedIcon == 1) Color(R.color.primaryDescendant) else Color.White,
+                    tint = if (selectedIcon == 1) Color(0xFFAE71F5) else Color.White,
                     imageVector = Icons.Rounded.DateRange,
                     contentDescription = "Vector",
                     modifier = Modifier
@@ -120,7 +120,7 @@ fun OptionsBar(modifier: Modifier = Modifier, selectedIcon: Int) {
                     .fillMaxWidth()
             ){
                 Icon(
-                    tint = if (selectedIcon == 2) Color(R.color.primaryDescendant) else Color.White,
+                    tint = if (selectedIcon == 2) Color(0xFFAE71F5) else Color.White,
                     imageVector = Icons.Rounded.AccessAlarm,
                     contentDescription = "Vector",
                     modifier = Modifier

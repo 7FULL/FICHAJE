@@ -7,5 +7,6 @@ data class User(
     val surname: String,
     val email: String,
     val password: String,
+    val fichajes: ArrayList<Fichaje>,
     val role: Role,
-){ constructor(): this("", "", "", "", "", "", Role.NONE) }
+){ constructor(): this("", "", "", "", "", "", ArrayList(), Role.NONE) }

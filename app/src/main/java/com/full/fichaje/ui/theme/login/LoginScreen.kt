@@ -80,6 +80,8 @@ fun Body(modifier: Modifier = Modifier, loginViewModel: LoginViewModel) {
     val username: String by loginViewModel.username.observeAsState(initial = "")
     val error: String by loginViewModel.error.observeAsState(initial = "")
 
+    val dev = false
+
     val checked: Boolean by loginViewModel.checkRememberMe.observeAsState(initial = false)
 
     //Pillamos el teclado simplemente para poder ocultarlo
@@ -100,8 +102,8 @@ fun Body(modifier: Modifier = Modifier, loginViewModel: LoginViewModel) {
                 .clip(shape = RoundedCornerShape(71.dp))
                 .background(
                     brush = Brush.linearGradient(
-                        0f to Color(0xff3ed8f8),
-                        1f to Color(0xff1976d2),
+                        0f to Color(0xFFAE71F5),
+                        1f to Color(0xFF6F19D2),
                         start = Offset(554f, -124.5f),
                         end = Offset(32.5f, 385f)
                     )
@@ -140,7 +142,7 @@ fun Body(modifier: Modifier = Modifier, loginViewModel: LoginViewModel) {
                         modifier = Modifier
                             .size(75.dp)
                             .align(alignment = Alignment.Center),
-                        tint = Color(0xff1976d2)
+                        tint = Color(0xFF6F19D2)
                     )
                 }
             }
@@ -160,9 +162,9 @@ fun Body(modifier: Modifier = Modifier, loginViewModel: LoginViewModel) {
                 },
             shape = RoundedCornerShape(5.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xff1976d2),
+                containerColor = Color(0xFF6F19D2),
                 contentColor = Color.White,
-                disabledContainerColor = Color(0xFFA0CFFD),
+                disabledContainerColor = Color(0xFFC5A3EC),
             ),
             enabled = enableLogin
         ) {
@@ -237,24 +239,28 @@ fun Body(modifier: Modifier = Modifier, loginViewModel: LoginViewModel) {
             }
         }
         //TODO: Remember to remove it when the app is in production
-        Button(
-            onClick = {
-                loginViewModel.onLoginChanged("admin", "678041577")
-                loginViewModel.login()
+        if(dev){
+            Button(
+                onClick = {
+                    loginViewModel.onLoginChanged("7FULL2", "678041577")
+                    loginViewModel.login()
+                }
+            ) {
+                Text(text = "Empleado")
             }
-        ) {
-            Text(text = "Empleado")
+
+            Button(
+                modifier = Modifier.padding(start = 200.dp),
+                onClick = {
+                    loginViewModel.onLoginChanged("7FULL", "678041577")
+                    loginViewModel.login()
+                }
+            ) {
+                Text(text = "Admin")
+            }
         }
 
-        Button(
-            modifier = Modifier.padding(start = 200.dp),
-            onClick = {
-                loginViewModel.onLoginChanged("7FULL", "678041577")
-                loginViewModel.login()
-            }
-        ) {
-            Text(text = "Admin")
-        }
+
 
         //Texto de error
         Text(
